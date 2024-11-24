@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Camila</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ff758c, #ff7eb3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .heart {
+      width: 100px;
+      height: 100px;
+      background: red;
+      position: relative;
+      transform: rotate(-45deg);
+      animation: bounce 1.5s infinite;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .heart::before, .heart::after {
+      content: "";
+      width: 100px;
+      height: 100px;
+      background: red;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart::before {
+      top: -50px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 50px;
+      top: 0;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0) rotate(-45deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(-45deg);
+      }
+    }
+
+    .message-box {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+      display: none;
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Para Camila, o amor da minha vida ❤️</h1>
+  <div class="heart" onclick="showMessage()"></div>
+  <div class="message-box" id="messageBox"></div>
+
+  <script>
+    const messages = [
+      "Você é meu mundo! 🌎",
+      "Eu te amo mais do que as palavras podem dizer!",
+      "Você é a menina mais incrível que eu conheci!",
+      "Você é perfeita!",
+      "Seu sorriso é perfeito!",
+      "Seus olhos são perfeitos!",
+      "Seu cabelo é perfeito!",
+      "Seu rosto é perfeito!",
+      "Seu corpo é perfeito!",
+      "Eu amo cada detalhe seu.",
+      "Você é uma pessoa forte e que merece o mundo!",
+      "Eu sei das coisas q vc ja passou e eu vi vc superar tudo e seguir em frente",
+      "Eu sei do seu potencial e sei que vc vai conquistar muita coisa ainda!",
+      "Vc me inspira a seguir em frente tambem",
+      "Eu sou o cara mais sortudo do mundo por ter você!",
+      "Eu te AMO!"
+    ];
+
+    let currentMessageIndex = 0;
+
+    function showMessage() {
+      const messageBox = document.getElementById('messageBox');
+      messageBox.textContent = messages[currentMessageIndex];
+      messageBox.style.display = 'block';
+
+      // Avança para a próxima mensagem, ou volta ao início se for a última
+      currentMessageIndex = (currentMessageIndex + 1) % messages.length;
+    }
+  </script>
+</body>
+</html>
